@@ -22,14 +22,14 @@ COMPANY_PATH = re.compile(r"^/companies/([^/?#]+)/?(?:.*)?$")
 COMPANY_SLUG = re.compile(r"[a-z0-9][a-z0-9-]+")
 RESERVED_COMPANY_SLUGS = {"apply", "jobs", "sitemap-jobs-index.xml"}
 DEFAULT_SITEMAP_INDEX = "https://join.com/companies/sitemap-jobs-index.xml"
-DEFAULT_JOB_URL_SOURCE = "https://raw.githubusercontent.com/Perinban/WebScrapJobs/main/job_post_url.txt"
+DEFAULT_JOB_URL_SOURCE = "https://raw.githubusercontent.com/Perinban/job-scraping-pipeline/main/job_post_url.txt"
 COMMON_CRAWL_COLLECTIONS_URL = "https://index.commoncrawl.org/collinfo.json"
 DEFAULT_CDX_URL = (
     "https://web.archive.org/cdx/search/cdx?"
     "url=join.com/companies/*&output=json&fl=original&filter=statuscode:200&collapse=urlkey"
 )
 GOOGLE_CSE_URL = "https://www.googleapis.com/customsearch/v1"
-USER_AGENT = "TalentBlissCompanyDiscovery/2.0 (+https://github.com/Perinban/join_companies)"
+USER_AGENT = "TalentBlissCompanyDiscovery/2.0 (+https://github.com/Perinban/join-company-discovery)"
 
 
 def normalize_company_slug(value: str) -> str | None:

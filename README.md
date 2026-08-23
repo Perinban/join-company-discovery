@@ -1,6 +1,6 @@
-# JOIN company discovery
+# JOIN Company Discovery
 
-This repository maintains `websites.json`, the company catalog consumed by `Perinban/WebScrapJobs`.
+This repository discovers and maintains `websites.json`, the canonical JOIN company catalog consumed by `Perinban/job-scraping-pipeline`.
 
 ## Why the old collector was incomplete
 
@@ -12,7 +12,7 @@ The refresh now preserves the existing catalog and unions companies from four so
 
 1. JOIN's recursive jobs sitemap advertised in `robots.txt`;
 2. company slugs found in recent Common Crawl records for actual JOIN job URLs;
-3. current job URLs already published by `Perinban/WebScrapJobs`; and
+3. current job URLs already published by `Perinban/job-scraping-pipeline`; and
 4. Google Custom Search as an optional final fallback.
 
 The sitemap is tried first. When JOIN's Cloudflare configuration blocks the XML request, Common Crawl provides independent URL discovery without downloading archived page bodies or bypassing JOIN access controls. Common Crawl company-page-only records are excluded by default; a company is added only when an archived JOIN job URL identifies it.
@@ -29,7 +29,7 @@ No public source can guarantee every private or never-indexed JOIN account. The 
 
 ## Schedule
 
-The company refresh runs daily at `20:17 UTC`, several hours before the nominal `00:01 UTC` WebScrapJobs schedule.
+The company refresh runs daily at `20:17 UTC`, several hours before the nominal `00:01 UTC` job-scraping pipeline schedule.
 
 The daily workflow unions the four newest Common Crawl collections. A manual backfill can use a larger window by setting the workflow input or environment variable:
 
